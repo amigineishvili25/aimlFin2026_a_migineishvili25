@@ -84,4 +84,4 @@ plt.ylabel('Accuracy')
 plt.legend()
 ```
 # Saving the plot to the current directory
-plt.savefig('cnn_training_plot.png')
+![cnn_training_plot](cnn_training_plot.png)
