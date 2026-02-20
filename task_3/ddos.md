@@ -3,8 +3,8 @@
 ## 1. Objective and Data Source
 The primary objective of this task is to analyze a given web server log file to identify the exact time interval of a Distributed Denial of Service (DDoS) attack. The analysis relies on statistical methods, specifically Linear Regression, to detect anomalous spikes in network traffic.
 
-* **Log File:** [a_migineishvili25_93254_server.log](./a_migineishvili25_93254_server.log)
-* **Source Code:** [task_3.py](./task_3.py)
+* **Log File:** [a_migineishvili25_93254_server.log](a_migineishvili25_93254_server.log)
+* **Source Code:** [task_3.py](task_3.py)
 
 ## 2. Methodology
 To reproduce the findings, the following analytical steps were performed using Python (`numpy` and `matplotlib`):
@@ -30,4 +30,3 @@ attack_times = []
 for i in range(len(X)):
     if residuals[i] > threshold:
         attack_times.append(sorted_times[i]) # Flagging the anomaly
-
