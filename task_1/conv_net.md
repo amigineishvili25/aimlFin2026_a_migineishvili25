@@ -8,7 +8,6 @@ The CNN architecture mainly consists of three fundamental types of layers:
 3. **Fully Connected Layer**: The final stage of the network, which combines the high-level features obtained from the previous layers and performs the final classification.
 
 ![CNN Architecture Placeholder](architecture.png)
-*(Note: An image of the CNN architecture should be uploaded here)*
 
 ### CNN in Cybersecurity
 Although CNNs were originally created for Computer Vision, they have shown tremendous potential in the field of cybersecurity. Given the increasing complexity of cyberattacks, traditional rule-based antiviruses and detection systems often fail to cope with "Zero-Day" threats. 
@@ -19,7 +18,7 @@ CNNs are successfully used for Malware classification. In this process, binary f
 
 ### Practical Example: 1D CNN for Detecting Network Traffic Anomalies (DDoS)
 
-Below is the Python code using `TensorFlow/Keras`. [cite_start]The code includes the generation of synthetic network traffic data, ensuring that the code can be run independently (without additional files) as the data and source code must be included in the file[cite: 29].
+Below is the Python code using `TensorFlow/Keras`. The code includes the generation of synthetic network traffic data, ensuring that the code can be run independently (without additional files) as the data and source code must be included in the file.
 
 ```python
 import numpy as np
@@ -28,8 +27,7 @@ from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
 
 # 1. Data Generation (Simulation)
-# Let's assume we have 2000 records of network traffic (e.g., packet size, interval, etc.), 
-# each with 50 features.
+# Simulating 2000 network traffic records with 50 features each
 num_samples = 2000
 num_features = 50
 
@@ -47,8 +45,11 @@ y_train, y_test = y[:split], y[split:]
 
 # 2. Creating the 1D CNN Model Architecture
 model = models.Sequential([
+    # Explicit Input layer to avoid Keras warnings
+    layers.Input(shape=(num_features, 1)),
+    
     # First Convolutional Layer
-    layers.Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=(num_features, 1)),
+    layers.Conv1D(filters=32, kernel_size=3, activation='relu'),
     layers.MaxPooling1D(pool_size=2),
     
     # Second Convolutional Layer
@@ -66,7 +67,7 @@ model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 
-# 4. Training
+# 4. Training the Model
 history = model.fit(X_train, y_train, epochs=15, batch_size=32, 
                     validation_data=(X_test, y_test), verbose=0)
 
@@ -74,12 +75,12 @@ history = model.fit(X_train, y_train, epochs=15, batch_size=32,
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)
 print(f"Model Test Accuracy for detecting network anomalies: {test_acc:.4f}")
 
-# 6. Visualizing the training process (for additional visualizations)
+# 6. Visualizing the training process
 plt.plot(history.history['accuracy'], label='Training Accuracy')
 plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
 plt.title('CNN Model Training Curve')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend()
+# Saving the plot to the current directory
 plt.savefig('cnn_training_plot.png')
-
