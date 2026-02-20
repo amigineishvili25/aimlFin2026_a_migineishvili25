@@ -30,6 +30,7 @@ attack_times = []
 for i in range(len(X)):
     if residuals[i] > threshold:
         attack_times.append(sorted_times[i]) # Flagging the anomaly
+```
 
 3. Results: Attack Time Interval
 
