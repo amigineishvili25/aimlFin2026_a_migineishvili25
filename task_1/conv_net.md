@@ -82,5 +82,6 @@ plt.title('CNN Model Training Curve')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend()
+```
 # Saving the plot to the current directory
 plt.savefig('cnn_training_plot.png')
