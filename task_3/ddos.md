@@ -32,7 +32,7 @@ for i in range(len(X)):
         attack_times.append(sorted_times[i]) # Flagging the anomaly
 ```
 
-3. Results: Attack Time Interval
+## 3. Results: Attack Time Interval
 
 Based on the regression analysis and the defined threshold, a massive and abnormal spike in incoming requests was detected. The system successfully isolated the following time interval for the DDoS attack:
 
@@ -40,6 +40,6 @@ Based on the regression analysis and the defined threshold, a massive and abnorm
 
     End Time: 2024-03-22 18:31:59
 
-4. Visualization
+## 4. Visualization
 
 The graph below illustrates the complete timeline of the server logs. The blue line represents the actual requests per second, the green line represents the normal traffic trend calculated via regression, and the red dots highlight the specific moments where the traffic exceeded the anomaly threshold (the DDoS attack).
