@@ -44,4 +44,6 @@ Based on the regression analysis and the defined threshold, a massive and abnorm
 
 The graph below illustrates the complete timeline of the server logs. The blue line represents the actual requests per second, the green line represents the normal traffic trend calculated via regression, and the red dots highlight the specific moments where the traffic exceeded the anomaly threshold (the DDoS attack).
 
+<img src="ddos_script.png" alt="ddos run script" width="800">
+
 <img src="ddos_analysis.png" alt="DDoS Analysis" width="800">
